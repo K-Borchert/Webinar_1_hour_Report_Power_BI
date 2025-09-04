@@ -12,6 +12,10 @@ Kennzahlen:
 3) % Wachstum gegenüber dem Vormonat = DIVIDE([Gesamtausgaben]-[Vormonat],[Vormonat])
 4) Farbe gegenüber dem Vormonat = IF([% Wachstum gegenüber dem Vormonat]<0,„grün“,„rot“)
 
+
+
+
+```
 Datumstabelle:
 Datumstabelle = 
 ADDCOLUMNS(
@@ -26,4 +30,5 @@ ADDCOLUMNS(
     "Wochentag Name", FORMAT([Date], "dddd"),
     "Ist Wochenende", IF(WEEKDAY([Date], 2) > 5, TRUE(), FALSE())
 )
+```
 
