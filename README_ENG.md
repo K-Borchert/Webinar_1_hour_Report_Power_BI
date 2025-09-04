@@ -28,3 +28,4 @@ ADDCOLUMNS (
     "WeekdayName", FORMAT ( [Date], "dddd" ),
     "IsWeekend", IF ( WEEKDAY ( [Date], 2 ) > 5, TRUE(), FALSE() )
 )
+
