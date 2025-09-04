@@ -16,7 +16,6 @@ Kennzahlen:
 
 
 ```
-Datumstabelle:
 Datumstabelle = 
 ADDCOLUMNS(
     CALENDARAUTO(),
