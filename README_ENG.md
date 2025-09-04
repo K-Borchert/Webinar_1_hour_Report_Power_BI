@@ -15,3 +15,16 @@ Measures:
    
 
 
+DateTable =
+ADDCOLUMNS (
+    CALENDARAUTO(),
+    "Year", YEAR ( [Date] ),
+    "MonthNumber", MONTH ( [Date] ),
+    "MonthName", FORMAT ( [Date], "MMMM" ),
+    "MonthShort", FORMAT ( [Date], "MMM" ),
+    "Quarter", "Q" & FORMAT ( [Date], "Q" ),
+    "YearMonth", FORMAT ( [Date], "YYYY-MM" ),
+    "Weekday", WEEKDAY ( [Date], 2 ),         -- 1 = Sunday, 2 = Monday
+    "WeekdayName", FORMAT ( [Date], "dddd" ),
+    "IsWeekend", IF ( WEEKDAY ( [Date], 2 ) > 5, TRUE(), FALSE() )
+)
