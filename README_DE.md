@@ -11,7 +11,7 @@ Kennzahlen:
 1) Gesamtausgaben = SUM(HouseholdSpending[Total])
 2) Vormonat = CALCULATE([Gesamtausgaben],DATEADD(DateTable[Datum],1,MONTH))
 3) % Wachstum gegenüber dem Vormonat = DIVIDE([Gesamtausgaben]-[Vormonat],[Vormonat])
-4) Farbe gegenüber dem Vormonat = IF([% Wachstum gegenüber dem Vormonat]<0,„grün“,„rot“)
+4) Farbe gegenüber dem Vormonat = IF([% Wachstum gegenüber dem Vormonat]<0,"grün","rot")
 ```
 
 
