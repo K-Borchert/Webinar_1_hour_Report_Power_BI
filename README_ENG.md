@@ -7,11 +7,12 @@ In this repository you will find all you need regarding the Power BI in one hour
 3) Background for the Report (https://github.com/K-Borchert/webinar/blob/main/BG%202.png)
 
 Measures:
+```
 1) Total spenndings = SUM(HouseholdSpending[Total])
 2) Previous Month = CALCULATE([Total spenndings],DATEADD(DateTable[Date],1,MONTH))
 3) % MoM growth = DIVIDE([Total spenndings]-[Previous Month],[Previous Month])
 4) Color MoM = IF([% MoM growth]<0,"green","red")
-
+```
    
 
 
