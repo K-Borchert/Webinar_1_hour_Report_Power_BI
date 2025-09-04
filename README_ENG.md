@@ -4,7 +4,7 @@ In this repository you will find all you need regarding the Power BI in one hour
 
 1) Data for the Hands on part (https://github.com/K-Borchert/webinar/blob/main/Household_Grocery_Spendings.xlsx)
 2) Measures for KPI calculation (see below 👇)
-3) Background for the Report (https://github.com/K-Borchert/webinar/blob/main/BG%202.png)
+3) Background for the Report (https://github.com/K-Borchert/Webinar_1_hour_Report_Power_BI/blob/main/Background_Report.png)
 
 Measures:
 ```
