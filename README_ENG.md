@@ -1,5 +1,6 @@
 Welcome!
 In this repository you will find all you need regarding the Power BI in one hour webinar!
+🔗Webinar: https://www.youtube.com/live/WrxXxBph62g?si=53rRyeb2SbCH1GQW
 ⚠️You need a Power BI Desktop if you want to join the show: https://www.microsoft.com/download/details.aspx?id=58494
 
 1) Data for the Hands on part (https://github.com/K-Borchert/webinar/blob/main/Household_Grocery_Spendings.xlsx)
