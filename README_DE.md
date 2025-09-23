@@ -9,27 +9,43 @@ In diesem Repository finden Sie alles, was Sie zum einstündigen Webinar „Powe
 
 Kennzahlen:
 ```
-1) Gesamtausgaben = SUM(HouseholdSpending[Total])
-2) Vormonat = CALCULATE([Gesamtausgaben],DATEADD(DateTable[Datum],1,MONTH))
-3) % Wachstum gegenüber dem Vormonat = DIVIDE([Gesamtausgaben]-[Vormonat],[Vormonat])
-4) Farbe gegenüber dem Vormonat = IF([% Wachstum gegenüber dem Vormonat]<0,"grün","rot")
+1) Total spendings = SUM(HouseholdSpending[Total])
+2) MoM = CALCULATE([Total spenndings],DATEADD(DateTable[Date],1,MONTH))
+3) % MoM growth = DIVIDE([Total spenndings]-[MoM],[MoM])
+4) Color MoM = IF([% MoM growth]<0,"green","red")
+
+(Für Teil 2)
+5) Überschrift Karte= SELECTEDVALUE(Ausgaben[Kategorie],"Gesamtausgaben")
+6) Überschrift Säulendiagramm = "Monatsvergleich für " & SELECTEDVALUE(Ausgaben[Kategorie],"Gesamtausgaben")
+7) Farbe = 
+Var _MoM = [% MoM]
+Var _Color =
+SWITCH(
+    TRUE(),
+    _MoM=0, "grey",
+    _MoM<0, "green",
+    _MoM>0, "red")
+
+Return
+_Color
 ```
-
+   
 
 
 ```
-Datumstabelle = 
-ADDCOLUMNS(
+Datumstabelle= 
+ADDCOLUMNS (
     CALENDARAUTO(),
-    "Jahr", YEAR([Date]),
-    "Monat", MONTH([Date]),
-    "Monat Name", FORMAT([Date], "MMMM"),
-    "Monat Kurz", FORMAT([Date], "MMM"),
-    "Quartal", "Q" & FORMAT([Date], "Q"),
-    "Jahr-Monat", FORMAT([Date], "YYYY-MM"),
-    "Wochentag", WEEKDAY([Date], 2), -- 1 = Sonntag, 2 = Montag
-    "Wochentag Name", FORMAT([Date], "dddd"),
-    "Ist Wochenende", IF(WEEKDAY([Date], 2) > 5, TRUE(), FALSE())
+    "Year", YEAR ( [Date] ),
+    "MonthNumber", MONTH ( [Date] ),
+    "MonthName", FORMAT ( [Date], "MMMM" ),
+    "MonthShort", FORMAT ( [Date], "MMM" ),
+    "Month-Year", FORMAT ( [Date], "MMM YYYY" ),       -- e.g. Jan 2024
+    "YearMonth", FORMAT ( [Date], "YYYYMM" ),          -- good for sorting
+    "Quarter", "Q" & FORMAT ( [Date], "Q" ),
+    "Weekday", WEEKDAY ( [Date], 2 ),                  -- 1 = Sunday, 2 = Monday
+    "WeekdayName", FORMAT ( [Date], "dddd" ),
+    "IsWeekend", IF ( WEEKDAY ( [Date], 2 ) > 5, TRUE(), FALSE() ),
+    "CalendarWeek", WEEKNUM ( [Date], 2 )              -- 2 = week starts Monday
 )
 ```
-
