@@ -9,27 +9,45 @@ In this repository you will find all you need regarding the Power BI in one hour
 
 Measures:
 ```
-1) Total spenndings = SUM(HouseholdSpending[Total])
-2) Previous Month = CALCULATE([Total spenndings],DATEADD(DateTable[Date],1,MONTH))
-3) % MoM growth = DIVIDE([Total spenndings]-[Previous Month],[Previous Month])
+1) Total spendings = SUM(HouseholdSpending[Total])
+2) MoM = CALCULATE([Total spenndings],DATEADD(DateTable[Date],1,MONTH))
+3) % MoM growth = DIVIDE([Total spenndings]-[MoM],[MoM])
 4) Color MoM = IF([% MoM growth]<0,"green","red")
+
+(For Part 2)
+5) Header Card Visual = SELECTEDVALUE(Spendings[Category],"Total spendings")
+6) Header Column Visual = "Monthly comparison for " & SELECTEDVALUE(Spendings[Category],"Total spendings")
+7) Color = 
+Var _MoM = [% MoM]
+Var _Color =
+SWITCH(
+    TRUE(),
+    _MoM=0, "grey",
+    _MoM<0, "green",
+    _MoM>0, "red")
+
+Return
+_Color
 ```
    
 
 
 ```
-DateTable =
+
+DateTable = 
 ADDCOLUMNS (
     CALENDARAUTO(),
     "Year", YEAR ( [Date] ),
     "MonthNumber", MONTH ( [Date] ),
     "MonthName", FORMAT ( [Date], "MMMM" ),
     "MonthShort", FORMAT ( [Date], "MMM" ),
+    "Month-Year", FORMAT ( [Date], "MMM YYYY" ),       -- e.g. Jan 2024
+    "YearMonth", FORMAT ( [Date], "YYYYMM" ),          -- good for sorting
     "Quarter", "Q" & FORMAT ( [Date], "Q" ),
-    "YearMonth", FORMAT ( [Date], "YYYY-MM" ),
-    "Weekday", WEEKDAY ( [Date], 2 ),         -- 1 = Sunday, 2 = Monday
+    "Weekday", WEEKDAY ( [Date], 2 ),                  -- 1 = Sunday, 2 = Monday
     "WeekdayName", FORMAT ( [Date], "dddd" ),
-    "IsWeekend", IF ( WEEKDAY ( [Date], 2 ) > 5, TRUE(), FALSE() )
+    "IsWeekend", IF ( WEEKDAY ( [Date], 2 ) > 5, TRUE(), FALSE() ),
+    "CalendarWeek", WEEKNUM ( [Date], 2 )              -- 2 = week starts Monday
 )
 ```
 
