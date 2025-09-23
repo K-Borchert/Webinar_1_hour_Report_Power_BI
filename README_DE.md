@@ -1,11 +1,14 @@
 Willkommen!
+```
 In diesem Repository finden Sie alles, was Sie zum einstündigen Webinar „Power BI Report in einer Stunde“ benötigen!
-🔗Webinar: https://www.youtube.com/live/MeykuS1vUG8?si=LLXK-Lt2TK94241b
+🔗Webinar Teil 1: https://www.youtube.com/live/MeykuS1vUG8?si=LLXK-Lt2TK94241b
+🔗Webinar Teil 2: https://youtube.com/live/cDQLhQRRt6U
 ⚠️Sie benötigen Power BI Desktop, wenn Sie an der Veranstaltung teilnehmen möchten: https://www.microsoft.com/download/details.aspx?id=58494
 
 1) Daten für den praktischen Teil (https://github.com/K-Borchert/webinar/blob/main/Haushaltsausgabenliste_Lebensmittel.xlsx)
 2) Kennzahlen für die KPI-Berechnung (siehe unten 👇)
 3) Hintergrund für den Bericht (https://github.com/K-Borchert/Webinar_1_hour_Report_Power_BI/blob/main/Background_Report.png)
+```
 
 Kennzahlen:
 ```
