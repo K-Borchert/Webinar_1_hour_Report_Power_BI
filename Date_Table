@@ -1,0 +1,16 @@
+
+DateTable = 
+ADDCOLUMNS (
+    CALENDARAUTO(),
+    "Year", YEAR ( [Date] ),
+    "MonthNumber", MONTH ( [Date] ),
+    "MonthName", FORMAT ( [Date], "MMMM" ),
+    "MonthShort", FORMAT ( [Date], "MMM" ),
+    "Month-Year", FORMAT ( [Date], "MMM YYYY" ),       -- e.g. Jan 2024
+    "YearMonth", FORMAT ( [Date], "YYYYMM" ),          -- good for sorting
+    "Quarter", "Q" & FORMAT ( [Date], "Q" ),
+    "Weekday", WEEKDAY ( [Date], 2 ),                  -- 1 = Sunday, 2 = Monday
+    "WeekdayName", FORMAT ( [Date], "dddd" ),
+    "IsWeekend", IF ( WEEKDAY ( [Date], 2 ) > 5, TRUE(), FALSE() ),
+    "CalendarWeek", WEEKNUM ( [Date], 2 )              -- 2 = week starts Monday
+)
