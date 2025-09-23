@@ -17,7 +17,7 @@ Measures:
 (For Part 2)
 5) Header Card Visual = SELECTEDVALUE(Spendings[Category],"Total spendings")
 6) Header Column Visual = "Monthly comparison for " & SELECTEDVALUE(Spendings[Category],"Total spendings")
-7) Color = 
+7) Color dark= 
 Var _MoM = [% MoM]
 Var _Color =
 SWITCH(
@@ -28,6 +28,18 @@ SWITCH(
 
 Return
 _Color
+
+8) Color light = 
+Var _MoM = [%MoM]
+Var Color =
+SWITCH(
+    TRUE(),
+    _MoM = 0, "grey",
+    _MoM > 0, "#ea899a",
+    _MoM < 0, "#b2d4b2"
+)
+RETURN
+Color
 ```
    
 
