@@ -14,7 +14,7 @@ https://www.microsoft.com/download/details.aspx?id=58494
 Kennzahlen:
 ```
 1) Total spendings = SUM(HouseholdSpending[Total])
-2) MoM = CALCULATE([Total spenndings],DATEADD(DateTable[Date],1,MONTH))
+2) MoM = CALCULATE([Total spenndings],DATEADD(DateTable[Date],-1,MONTH))
 3) % MoM growth = DIVIDE([Total spenndings]-[MoM],[MoM])
 4) Color MoM = IF([% MoM growth]<0,"green","red")
 
