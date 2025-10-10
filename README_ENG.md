@@ -13,7 +13,7 @@ In this repository you will find all you need regarding the Power BI in one hour
 Measures:
 ```
 1) Total spendings = SUM(HouseholdSpending[Total])
-2) MoM = CALCULATE([Total spenndings],DATEADD(DateTable[Date],1,MONTH))
+2) MoM = CALCULATE([Total spenndings],DATEADD(DateTable[Date],-1,MONTH))
 3) % MoM growth = DIVIDE([Total spenndings]-[MoM],[MoM])
 4) Color MoM = IF([% MoM growth]<0,"green","red")
 
