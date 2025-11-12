@@ -13,12 +13,13 @@ https://www.microsoft.com/download/details.aspx?id=58494
 
 Kennzahlen:
 ```
-1) Total spendings = SUM(HouseholdSpending[Total])
-2) MoM = CALCULATE([Total spenndings],DATEADD(DateTable[Date],-1,MONTH))
-3) % MoM growth = DIVIDE([Total spenndings]-[MoM],[MoM])
-4) Color MoM = IF([% MoM growth]<0,"green","red")
+1) Totale Ausgaben = SUM(HouseholdSpending[Total])
+2) Vormonat = CALCULATE([Total spenndings],DATEADD(DateTable[Date],-1,MONTH))
+3) % Wachstumsrate gegenüber dem Vormonat = DIVIDE([Total spenndings]-[MoM],[MoM])
+4) Farbe = IF([% MoM growth]<0,"green","red")
 
-(Für Teil 2)
+
+(Für Teil 2 - https://youtube.com/live/cDQLhQRRt6U)
 5) Überschrift Karte= SELECTEDVALUE(Ausgaben[Kategorie],"Gesamtausgaben")
 6) Überschrift Säulendiagramm = "Monatsvergleich für " & SELECTEDVALUE(Ausgaben[Kategorie],"Gesamtausgaben")
 7) Farbe = 
@@ -37,19 +38,20 @@ _Color
 
 
 ```
-Datumstabelle= 
-ADDCOLUMNS (
-    CALENDARAUTO(),
-    "Year", YEAR ( [Date] ),
-    "MonthNumber", MONTH ( [Date] ),
-    "MonthName", FORMAT ( [Date], "MMMM" ),
-    "MonthShort", FORMAT ( [Date], "MMM" ),
-    "Month-Year", FORMAT ( [Date], "MMM YYYY" ),       -- e.g. Jan 2024
-    "YearMonth", FORMAT ( [Date], "YYYYMM" ),          -- good for sorting
-    "Quarter", "Q" & FORMAT ( [Date], "Q" ),
-    "Weekday", WEEKDAY ( [Date], 2 ),                  -- 1 = Sunday, 2 = Monday
-    "WeekdayName", FORMAT ( [Date], "dddd" ),
-    "IsWeekend", IF ( WEEKDAY ( [Date], 2 ) > 5, TRUE(), FALSE() ),
-    "CalendarWeek", WEEKNUM ( [Date], 2 )              -- 2 = week starts Monday
+Datumstabelle =
+VAR _Kalender = CALENDARAUTO()
+RETURN
+ADDCOLUMNS(
+    _Kalender,
+    "Jahr", YEAR([Date]),
+    "Monat", MONTH([Date]),
+    "Monatsname", FORMAT([Date], "MMMM"),
+    "Jahr-Monat", FORMAT([Date], "YYYY-MM"),
+    "Quartal", "Q" & FORMAT([Date], "Q"),
+    "Wochentag", WEEKDAY([Date], 2),
+    "Wochentagname", FORMAT([Date], "dddd"),
+    "Kalenderwoche", WEEKNUM([Date], 2),
+    "Ist Wochenende", IF(WEEKDAY([Date],2)>5, TRUE(), FALSE())
 )
+
 ```
