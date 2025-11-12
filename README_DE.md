@@ -13,10 +13,10 @@ https://www.microsoft.com/download/details.aspx?id=58494
 
 Kennzahlen:
 ```
-1) Totale Ausgaben = SUM(HouseholdSpending[Total])
-2) Vormonat = CALCULATE([Total spenndings],DATEADD(DateTable[Date],-1,MONTH))
-3) % Wachstumsrate gegenüber dem Vormonat = DIVIDE([Total spenndings]-[MoM],[MoM])
-4) Farbe = IF([% MoM growth]<0,"green","red")
+1) Totale Ausgaben = SUM(Haushaltsausgaben[Gesamt]) 
+2) Vormonat = CALCULATE([Totale Ausgaben],DATEADD(Datumstabelle[Date],1,MONTH))
+3)% Wachstum gegenüber dem Vormonat = DIVIDE([Totale Ausgaben]-[Vormonat],[Vormonat])
+Farbe = IF([% Wachstum gegenüber dem Vormonat]<0,"green","red")
 
 
 (Für Teil 2 - https://youtube.com/live/cDQLhQRRt6U)
