@@ -6,9 +6,13 @@ In diesem Repository finden Sie alles, was Sie zum einstündigen Webinar „Powe
 ⚠️Sie benötigen Power BI Desktop, wenn Sie an der Veranstaltung teilnehmen möchten:
 https://www.microsoft.com/download/details.aspx?id=58494
 
-1) Daten für den praktischen Teil (https://github.com/K-Borchert/webinar/blob/main/Haushaltsausgabenliste_Lebensmittel.xlsx)
+1) Daten für den praktischen Teil
+(https://github.com/K-Borchert/webinar/blob/main/Haushaltsausgabenliste_Lebensmittel.xlsx)
+
 2) Kennzahlen für die KPI-Berechnung (siehe unten 👇)
-3) Hintergrund für den Bericht (https://github.com/K-Borchert/Webinar_1_hour_Report_Power_BI/blob/main/Background_Report.png)
+
+3) Hintergrund für den Bericht
+(https://github.com/K-Borchert/Webinar_1_hour_Report_Power_BI/blob/main/Background_Report.png)
 ```
 
 Kennzahlen:
